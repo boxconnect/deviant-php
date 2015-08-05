@@ -2,7 +2,7 @@
     "name": "boxconnect/deviant-php",
     "description": "DeviantArt SDK for PHP",
     "keywords" : [ "deviantart", "boxconnect" ],
-    "homepage": "https://github.com/boxconnect/deviantPHP",
+    "homepage": "https://github.com/boxconnect/deviant-php",
     "license": "MIT",
     "authors": [
         {
