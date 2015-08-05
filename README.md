@@ -8,7 +8,7 @@ It is a wrapper for some of theirs functions and hooks because we needed some so
 
 Installation
 ------------
-The simplest way to install the package, is via [composer](https://getcomposer.org/)
+The simplest way to install the package, is via [composer](https://getcomposer.org/). Otherwise, just include() the deviantPHP.php file in the folder /src
 
 	{
  		"require": {
@@ -18,11 +18,21 @@ The simplest way to install the package, is via [composer](https://getcomposer.o
 
 Usage/Functions:
 ----------------
-*This will be Italic*
+Having installed deviantPHP via Composer, you have the extra plus of autoloading. We define DeviantPHP as namespace, thus the main class is called \DeviantPHP\DeviantPHP.
+Obviously, you will need to change CLIENT_ID, CLIENT_SECRET, THIS_URL AND SCOPES to suit your needs. Please see [Deviantart Developer](https://www.deviantart.com/developers/) for more information.
 
-**This will be Bold**
+	<?php
+	require_once "vendor/autoload.php";
 
-- This will be a list item
-- This will be a list item
+	use \DeviantPHP as dvp;
+	$options = array("client_id" => CLIENT_ID, 
+					"client_secret" => CLIENT_SECRET,
+					"redirect_uri" => THIS_URL,
+					"scope" => SCOPES);
 
-    Add a indent and this will end up as code
+	$dvpClient = new dvp\DeviantPHP($options);
+	$dvpClient->authenticate();
+	if ($dvpClient->isAuthenticated())
+		$dvpClient->uploadFile(SOME_FILE);
+
+	?>
