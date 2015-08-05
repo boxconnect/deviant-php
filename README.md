@@ -1,5 +1,5 @@
 deviantPHP
-==============
+==========
 
 Warning!
 --------------
@@ -7,7 +7,7 @@ Warning!
 It is a wrapper for some of theirs functions and hooks because we needed some sort of library for our project http://boxconnect.org. That said, let's see, how we can help nevertheless.
 
 Installation
---------------
+------------
 The simplest way to install the package, is via [composer](https://getcomposer.org/)
 
 	{
@@ -16,7 +16,8 @@ The simplest way to install the package, is via [composer](https://getcomposer.o
 		}
 	}	
 
-
+Usage/Functions:
+----------------
 *This will be Italic*
 
 **This will be Bold**
