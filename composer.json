@@ -1,0 +1,16 @@
+{
+    "name": "boxconnect/deviantPHP",
+    "description": "DeviantArt SDK for PHP",
+    "keywords" : [ "deviantart" ],
+
+    "license": "MIT",
+
+    "autoload": {
+        "psr-0": { "DeviantPHP": "src/" }
+    },
+
+    "require": {
+        "php": ">= 5.3",
+        "ext-curl": "*"
+    }
+}
