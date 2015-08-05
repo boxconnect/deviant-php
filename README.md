@@ -21,6 +21,7 @@ Usage/Functions:
 Having installed deviantPHP via Composer, you have the extra plus of autoloading. We define DeviantPHP as namespace, thus the main class is called \DeviantPHP\DeviantPHP.
 Obviously, you will need to change CLIENT_ID, CLIENT_SECRET, THIS_URL AND SCOPES to suit your needs. Please see [Deviantart Developer](https://www.deviantart.com/developers/) for more information.
 
+```PHP
 	<?php
 	require_once "vendor/autoload.php";
 
@@ -36,3 +37,6 @@ Obviously, you will need to change CLIENT_ID, CLIENT_SECRET, THIS_URL AND SCOPES
 		$dvpClient->uploadFile(SOME_FILE);
 
 	?>
+  
+```
+
