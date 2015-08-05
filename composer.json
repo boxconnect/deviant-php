@@ -13,7 +13,7 @@
     ],
 
     "autoload": {
-        "psr-4": { "DeviantPHP": "src/" }
+        "psr-4": { "DeviantPHP\\": "src/" }
     },
 
     "require": {
