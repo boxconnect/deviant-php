@@ -3,12 +3,12 @@ deviantPHP
 
 Warning!
 --------------
-**First of all**: This is not an official package from http://deviantart.com.\n
+**First of all**: This is not an official package from http://deviantart.com.  
 It is a wrapper for some of theirs functions and hooks because we needed some sort of library for our project http://boxconnect.org. That said, let's see, how we can help nevertheless.
 
 Installation
 ------------
-The simplest way to install the package, is via [composer](https://getcomposer.org/). Otherwise, just include() the deviantPHP.php file in the folder /src
+The simplest way to install the package, is via [composer](https://getcomposer.org/). Otherwise, just include() the deviantPHP.php file in the folder /src.
 
 	{
  		"require": {
