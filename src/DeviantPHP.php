@@ -4,7 +4,7 @@ namespace DeviantPHP;
 
 class DeviantPHP {
 
-    var $client_id, $client_secret, $redirect_uri, $scope = null;
+    var $client_id, $client_secret, $redirect_uri, $scope, $user_agent = null;
 
     private $da_oauth_url = "https://www.deviantart.com/oauth2";
     private $da_oauth_placebo = "https://www.deviantart.com/api/v1/oauth2/placebo";
@@ -13,12 +13,16 @@ class DeviantPHP {
     private $access_token, $refresh_token = null;
 
     function __construct($params=array()) {
-        $vars = array("client_id", "client_secret", "token", "redirect_uri", "scope");
+        $vars = array("client_id", "client_secret", "redirect_uri", "scope", "user_agent");
 
         foreach ($vars as $var) {
             if (!empty($params[$var]))
                 $this->$var = $params[$var];
         }
+
+        // check user_agent
+        if (empty($this->user_agent)) $this->user_agent = $_SERVER["HTTP_USER_AGENT"];
+
         $this->checkFunctions();
     }
 
@@ -168,7 +172,7 @@ class DeviantPHP {
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_POST, count($data));
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER["HTTP_USER_AGENT"]);
+        curl_setopt($ch, CURLOPT_USERAGENT, $this->user_agent);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
         //execute post
