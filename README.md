@@ -51,6 +51,7 @@ createAuthUrl   | none			     					| Returns the authentication URL needed for t
 getAccessToken  | $code (string)	 					| Get an access/refresh token from deviantart, needs the OAuth code as input.
 refreshToken    | none			     					| Gets a new access token if the old one is expired (after one hour).
 uploadFile      | $filename (string) 					| Uploads a file to sta.sh with the given name. Returns the result (file id) as associative array.
+getUser         | none									| Get infos about the authorized user.
 isAuthenticated | none 									| Checks if the access token is still valid. Returns true or false.
 setRedirect		| $url (string) 						| Sets the redirect_uri (for OAuth).
 getRedirect     | none 				 					| Returns the actual redirect_uri.

@@ -7,8 +7,9 @@ class DeviantPHP {
     var $client_id, $client_secret, $redirect_uri, $scope, $user_agent = null;
 
     private $da_oauth_url = "https://www.deviantart.com/oauth2";
+    private $da_oauth_resource = "https://www.deviantart.com/api/v1/oauth2/";
     private $da_oauth_placebo = "https://www.deviantart.com/api/v1/oauth2/placebo";
-    private $da_oauth_submit = "https://www.deviantart.com/api/v1/oauth2/stash/submit";
+
 
     private $access_token, $refresh_token = null;
 
@@ -95,14 +96,30 @@ class DeviantPHP {
             $data["access_token"] = $this->access_token;
             $data["file"] = curl_file_create($filename);
 
-            $result = json_decode($this->doCurl($this->da_oauth_submit, $data), true);
+            $result = json_decode($this->doCurl($this->da_oauth_resource . "stash/submit", $data), true);
             if (!empty($result["error"])) throw new \Exception($result["error_description"]);
             return $result;
         } catch(Exception $e) {
             echo $e->getMessage();
         }
     }
-
+    
+    // Get authorized user (whoami)
+    function getUser() {
+        try {
+            if (!$this->isAuthenticated()) $this->refreshToken();
+            
+            $data = array();
+            $data["access_token"] = $this->access_token;
+            
+            $result = json_decode($this->doCurl($this->da_oauth_resource . "user/whoami", $data), true);
+            if (!empty($result["error"])) throw new \Exception($result["error_description"]);
+            return $result;
+        } catch(Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+    
     function isAuthenticated() {
         try {
             if (empty($this->access_token)) throw new \Exception("The access_token is empty.");
